@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Git Commit Playground</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 Git Commit Playground</h1>
+
+    <div class="commit-form">
+        <input type="text" id="author" placeholder="Author name">
+        <input type="text" id="message" placeholder="Commit message">
+        <button id="commitBtn">Commit</button>
+    </div>
+
+    <div class="stats">
+        <p>Total commits: <span id="commitCount">0</span></p>
+    </div>
+
+    <div id="commitList" class="commit-list"></div>
+
+    <button id="clearBtn" class="danger">Clear History</button>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
