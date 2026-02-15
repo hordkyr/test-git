@@ -3,7 +3,16 @@ const clearBtn = document.getElementById("clearBtn");
 const commitList = document.getElementById("commitList");
 const commitCount = document.getElementById("commitCount");
 
+const counterElement = document.getElementById("counter");
+const incrementBtn = document.getElementById("increment");
+const decrementBtn = document.getElementById("decrement");
+const resetBtn = document.getElementById("reset");
+
 let commits = JSON.parse(localStorage.getItem("commits")) || [];
+
+let count = localStorage.getItem("count")
+    ? parseInt(localStorage.getItem("count"))
+    : 0;
 
 function generateHash() {
     return Math.random().toString(16).substring(2, 9);
@@ -57,3 +66,26 @@ clearBtn.addEventListener("click", () => {
 });
 
 renderCommits();
+
+// Counter functionality
+counterElement.textContent = count;
+
+function updateCounter() {
+    counterElement.textContent = count;
+    localStorage.setItem("count", count);
+}
+
+incrementBtn.addEventListener("click", () => {
+    count++;
+    updateCounter();
+});
+
+decrementBtn.addEventListener("click", () => {
+    count--;
+    updateCounter();
+});
+
+resetBtn.addEventListener("click", () => {
+    count = 0;
+    updateCounter();
+});
